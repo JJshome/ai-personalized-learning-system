@@ -11,15 +11,18 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 # Import system components
-from data_collection.biosensor_manager import BiosensorManager
-from data_collection.data_processor import DataProcessor
-from ai_analysis.learning_model import LearningModel
-from ai_analysis.path_generator import PathGenerator
-from content_provider.content_adapter import ContentAdapter
-from content_provider.content_manager import ContentManager
-from xai.explanation_generator import ExplanationGenerator
-from xai.visualization_generator import VisualizationGenerator
-from xai import XAIManager
+from src.data_collection.biosensor_manager import BiosensorManager
+from src.data_collection.data_processor import DataProcessor
+from src.ai_analysis.learning_model import LearningModel
+from src.ai_analysis.path_generator import PathGenerator
+from src.ai_analysis.path_recommender import PathRecommender
+from src.content_provider.content_adapter import ContentAdapter
+from src.content_provider.content_generator import ContentGenerator
+from src.xai.simple_explanation_generator import ExplanationGenerator
+from src.xai.visualization_generator import VisualizationGenerator
+from src.security.security_manager import SecurityManager
+from src.security.privacy_protection import PrivacyProtection
+from src.security.blockchain_ledger import BlockchainLedger
 
 class PersonalizedLearningSystem:
     """Main class for the AI Personalized Learning System
@@ -42,6 +45,7 @@ class PersonalizedLearningSystem:
         self.is_initialized = False
         self.system_ready = False
         self.user_id = None
+        self.session_token = None
         
         # Initialize components
         self._init_components()
@@ -103,10 +107,53 @@ class PersonalizedLearningSystem:
                 "notification_level": "medium"
             },
             "security": {
-                "encryption": "AES-256",
-                "data_retention": 90,  # days
-                "anonymization": True,
-                "consent_required": True
+                "privacy": {
+                    "encryption": {
+                        "enabled": True,
+                        "key_size": 2048,
+                        "scheme": "simulated_bfv",
+                        "attributes_to_encrypt": [
+                            "eeg_data", "heart_rate", "eye_tracking", 
+                            "personal_info", "assessment_results"
+                        ]
+                    },
+                    "differential_privacy": {
+                        "enabled": True,
+                        "epsilon": 1.0,
+                        "delta": 0.00001,
+                        "mechanism": "laplace"
+                    },
+                    "anonymization": {
+                        "enabled": True,
+                        "strategy": "pseudonymization"
+                    },
+                    "data_minimization": {
+                        "enabled": True,
+                        "retention_period_days": 90
+                    },
+                    "edge_computing": {
+                        "enabled": True
+                    }
+                },
+                "blockchain": {
+                    "enabled": True,
+                    "difficulty": 4,
+                    "batch_processing": True,
+                    "batch_size": 10
+                },
+                "authentication": {
+                    "session_timeout_minutes": 60,
+                    "max_failed_attempts": 5,
+                    "lockout_duration_minutes": 30
+                },
+                "audit": {
+                    "enabled": True,
+                    "log_level": "INFO",
+                    "events_to_log": [
+                        "authentication", "data_access", "encryption", 
+                        "blockchain", "privacy", "security_config"
+                    ]
+                }
             }
         }
         
@@ -154,6 +201,11 @@ class PersonalizedLearningSystem:
         data_dir = Path(self.config["system"]["data_dir"])
         data_dir.mkdir(parents=True, exist_ok=True)
         
+        # Initialize security components
+        self.security_manager = SecurityManager(
+            config=self.config["security"]
+        )
+        
         # Initialize biosensor manager
         self.biosensor_manager = BiosensorManager(
             config=self.config["biosensor"]
@@ -169,7 +221,11 @@ class PersonalizedLearningSystem:
         
         # Initialize path generator
         self.path_generator = PathGenerator(
-            learning_model=self.learning_model,
+            config=self.config["path_generator"]
+        )
+        
+        # Initialize path recommender
+        self.path_recommender = PathRecommender(
             config=self.config["path_generator"]
         )
         
@@ -178,11 +234,17 @@ class PersonalizedLearningSystem:
             config=self.config["content_adapter"]
         )
         
-        # Initialize content manager
-        self.content_manager = ContentManager()
+        # Initialize content generator
+        self.content_generator = ContentGenerator(
+            config=self.config["content_adapter"]
+        )
         
-        # Initialize XAI manager
-        self.xai_manager = XAIManager(
+        # Initialize XAI components
+        self.explanation_generator = ExplanationGenerator(
+            config=self.config["xai"]
+        )
+        
+        self.visualization_generator = VisualizationGenerator(
             config=self.config["xai"]
         )
     
@@ -195,16 +257,27 @@ class PersonalizedLearningSystem:
         try:
             print("Initializing Personalized Learning System...")
             
-            # Initialize components
+            # Initialize security components
+            print("Initializing security components...")
+            if not self.security_manager.privacy.initialize():
+                print("Error: Failed to initialize security components")
+                return False
+                
+            # Initialize biosensor components if enabled
             if self.config["biosensor"]["enabled"]:
+                print("Initializing biosensor components...")
                 if not self.biosensor_manager.initialize():
                     print("Warning: Failed to initialize biosensor manager")
                     print("Continuing with limited functionality")
             
+            # Initialize data processing components
+            print("Initializing data processing components...")
             if not self.data_processor.initialize():
                 print("Error: Failed to initialize data processor")
                 return False
             
+            # Initialize AI analysis components
+            print("Initializing AI analysis components...")
             if not self.learning_model.initialize():
                 print("Error: Failed to initialize learning model")
                 return False
@@ -213,20 +286,38 @@ class PersonalizedLearningSystem:
                 print("Error: Failed to initialize path generator")
                 return False
             
+            if not self.path_recommender.initialize():
+                print("Error: Failed to initialize path recommender")
+                return False
+            
+            # Initialize content components
+            print("Initializing content components...")
             if not self.content_adapter.initialize():
                 print("Error: Failed to initialize content adapter")
                 return False
             
-            if not self.content_manager.initialize():
-                print("Error: Failed to initialize content manager")
+            if not self.content_generator.initialize():
+                print("Error: Failed to initialize content generator")
                 return False
             
-            if not self.xai_manager.initialize():
-                print("Warning: Failed to initialize XAI manager")
+            # Initialize XAI components
+            print("Initializing XAI components...")
+            if not self.explanation_generator.initialize():
+                print("Warning: Failed to initialize explanation generator")
                 print("Continuing with limited explainability")
+            
+            if not self.visualization_generator.initialize():
+                print("Warning: Failed to initialize visualization generator")
+                print("Continuing with limited visualizations")
             
             self.is_initialized = True
             self.system_ready = True
+            
+            # Process any pending blockchain records
+            if self.config["security"]["blockchain"]["enabled"] and self.config["security"]["blockchain"]["batch_processing"]:
+                print("Processing pending blockchain records...")
+                self.security_manager.process_pending_blockchain_records()
+            
             print("Personalized Learning System initialized successfully")
             return True
             
@@ -234,37 +325,76 @@ class PersonalizedLearningSystem:
             print(f"Error initializing Personalized Learning System: {e}")
             return False
     
-    def login_user(self, user_id: str) -> bool:
-        """Log in a user to the system
+    def login_user(self, user_id: str, auth_token: str) -> Dict[str, Any]:
+        """Log in a user to the system with authentication
         
         Args:
             user_id (str): User ID
+            auth_token (str): Authentication token or password
             
         Returns:
-            bool: True if login successful, False otherwise
+            Dict[str, Any]: Login result with session info
         """
         if not self.is_initialized:
-            print("System not initialized")
-            return False
+            return {"success": False, "message": "System not initialized"}
         
         try:
-            print(f"Logging in user: {user_id}")
+            print(f"Authenticating user: {user_id}")
+            
+            # Authenticate user through security manager
+            auth_result = self.security_manager.authenticate_user(
+                user_id=user_id,
+                auth_token=auth_token,
+                client_info={"source": "web_interface"}
+            )
+            
+            if not auth_result["authenticated"]:
+                return {"success": False, "message": "Authentication failed"}
+            
+            # Store session token
+            self.session_token = auth_result["session_token"]
             
             # Load user profile and history
             user_data = self._load_user_data(user_id)
             
+            # Apply security measures to user data
+            secure_user_data = self.security_manager.secure_data(
+                data=user_data,
+                user_id=user_id,
+                data_type="user_profile",
+                operation="load"
+            )
+            
             # Update learning model with user data
-            self.learning_model.load_user_data(user_data)
+            self.learning_model.load_user_data(secure_user_data)
             
             # Set current user
             self.user_id = user_id
             
             print(f"User {user_id} logged in successfully")
-            return True
+            return {
+                "success": True,
+                "session_token": auth_result["session_token"],
+                "session_expiry": auth_result["expiry"],
+                "message": "Login successful"
+            }
             
         except Exception as e:
             print(f"Error logging in user {user_id}: {e}")
+            return {"success": False, "message": f"Login error: {str(e)}"}
+    
+    def verify_session(self) -> bool:
+        """Verify the current user session is valid
+        
+        Returns:
+            bool: True if session is valid, False otherwise
+        """
+        if not self.is_initialized or not self.user_id or not self.session_token:
             return False
+        
+        # Validate session through security manager
+        validation = self.security_manager.validate_session(self.session_token)
+        return validation["valid"]
     
     def _load_user_data(self, user_id: str) -> Dict[str, Any]:
         """Load user data from storage
@@ -340,11 +470,18 @@ class PersonalizedLearningSystem:
             }
         }
         
-        # Save default user data
+        # Secure and save default user data
+        secure_user_data = self.security_manager.secure_data(
+            data=default_user_data,
+            user_id=user_id,
+            data_type="user_profile",
+            operation="create"
+        )
+        
         user_data_path = Path(self.config["system"]["data_dir"]) / f"user_{user_id}.json"
         try:
             with open(user_data_path, 'w') as f:
-                json.dump(default_user_data, f, indent=2)
+                json.dump(secure_user_data, f, indent=2)
         except Exception as e:
             print(f"Error saving default user data: {e}")
         
@@ -363,20 +500,41 @@ class PersonalizedLearningSystem:
         if not self.is_initialized or not self.user_id:
             raise RuntimeError("System not initialized or user not logged in")
         
+        if not self.verify_session():
+            raise RuntimeError("User session expired or invalid")
+        
+        # Check authorization
+        auth_result = self.security_manager.authorize_access(
+            user_id=self.user_id,
+            resource_type="learning_path",
+            operation="read"
+        )
+        
+        if not auth_result["authorized"]:
+            raise RuntimeError(f"Access denied: {auth_result.get('reason', 'Not authorized')}")
+        
         # Generate learning path
         path = self.path_generator.generate_path(goal)
         
+        # Secure the learning path data
+        secure_path = self.security_manager.secure_data(
+            data=path,
+            user_id=self.user_id,
+            data_type="learning_path",
+            operation="generate"
+        )
+        
         # Add explanation if requested
-        if explain and self.xai_manager.is_initialized:
-            explanation = self.xai_manager.explain_learning_path(
-                path_data=path,
+        if explain:
+            explanation = self.explanation_generator.explain_learning_path(
+                path_data=secure_path,
                 learning_model=self.learning_model,
                 detail_level=self.config["xai"]["default_detail_level"],
-                language_style=self.config["xai"]["default_language_style"]
+                user_id=self.user_id
             )
-            path["explanation"] = explanation
+            secure_path["explanation"] = explanation
         
-        return path
+        return secure_path
     
     def get_adapted_content(self, content_id: str, explain: bool = True) -> Dict[str, Any]:
         """Get personalized content adapted to the current user
@@ -391,8 +549,21 @@ class PersonalizedLearningSystem:
         if not self.is_initialized or not self.user_id:
             raise RuntimeError("System not initialized or user not logged in")
         
+        if not self.verify_session():
+            raise RuntimeError("User session expired or invalid")
+        
+        # Check authorization
+        auth_result = self.security_manager.authorize_access(
+            user_id=self.user_id,
+            resource_type="content",
+            operation="read"
+        )
+        
+        if not auth_result["authorized"]:
+            raise RuntimeError(f"Access denied: {auth_result.get('reason', 'Not authorized')}")
+        
         # Get base content
-        base_content = self.content_manager.get_content(content_id)
+        base_content = self.content_generator.get_content(content_id)
         
         # Adapt content to user
         adapted_content = self.content_adapter.adapt_content(
@@ -400,17 +571,25 @@ class PersonalizedLearningSystem:
             user_model=self.learning_model
         )
         
+        # Secure the adapted content
+        secure_content = self.security_manager.secure_data(
+            data=adapted_content,
+            user_id=self.user_id,
+            data_type="adapted_content",
+            operation="adapt"
+        )
+        
         # Add explanation if requested
-        if explain and self.xai_manager.is_initialized:
-            explanation = self.xai_manager.explain_content_adaptation(
-                content_data=adapted_content,
+        if explain:
+            explanation = self.explanation_generator.explain_content_adaptation(
+                content_data=secure_content,
                 learning_model=self.learning_model,
                 detail_level=self.config["xai"]["default_detail_level"],
-                language_style=self.config["xai"]["default_language_style"]
+                user_id=self.user_id
             )
-            adapted_content["explanation"] = explanation
+            secure_content["explanation"] = explanation
         
-        return adapted_content
+        return secure_content
     
     def process_learning_activity(self, activity_data: Dict[str, Any]) -> Dict[str, Any]:
         """Process a learning activity and update the user model
@@ -424,10 +603,31 @@ class PersonalizedLearningSystem:
         if not self.is_initialized or not self.user_id:
             raise RuntimeError("System not initialized or user not logged in")
         
+        if not self.verify_session():
+            raise RuntimeError("User session expired or invalid")
+        
+        # Check authorization
+        auth_result = self.security_manager.authorize_access(
+            user_id=self.user_id,
+            resource_type="activity",
+            operation="write"
+        )
+        
+        if not auth_result["authorized"]:
+            raise RuntimeError(f"Access denied: {auth_result.get('reason', 'Not authorized')}")
+        
         # Process biosensor data if available
         biosensor_data = None
         if self.config["biosensor"]["enabled"] and self.biosensor_manager.is_initialized:
             biosensor_data = self.biosensor_manager.get_latest_data()
+            
+            # Apply edge computing privacy protections
+            if self.config["security"]["privacy"]["edge_computing"]["enabled"]:
+                edge_config = self.security_manager.privacy.get_edge_computing_config()
+                # Simulate edge computing privacy protection
+                # In a real implementation, this would be done on the edge device
+                # before data is transmitted to the central system
+                print("Applied edge computing privacy protections to biosensor data")
         
         # Process activity data
         processed_data = self.data_processor.process_activity_data(
@@ -435,9 +635,17 @@ class PersonalizedLearningSystem:
             biosensor_data=biosensor_data
         )
         
+        # Secure the processed data
+        secure_processed_data = self.security_manager.secure_data(
+            data=processed_data,
+            user_id=self.user_id,
+            data_type="learning_activity",
+            operation="process"
+        )
+        
         # Update learning model
         update_result = self.learning_model.update_from_activity(
-            activity_data=processed_data
+            activity_data=secure_processed_data
         )
         
         # Generate cognitive assessment if biosensor data is available
@@ -446,8 +654,8 @@ class PersonalizedLearningSystem:
             "model_updated": update_result
         }
         
-        if biosensor_data and self.xai_manager.is_initialized:
-            cognitive_assessment = self._generate_cognitive_assessment(processed_data)
+        if biosensor_data:
+            cognitive_assessment = self._generate_cognitive_assessment(secure_processed_data)
             results["cognitive_assessment"] = cognitive_assessment
         
         return results
@@ -491,16 +699,24 @@ class PersonalizedLearningSystem:
             ]
         }
         
+        # Secure the assessment data
+        secure_assessment = self.security_manager.secure_data(
+            data=assessment,
+            user_id=self.user_id,
+            data_type="cognitive_assessment",
+            operation="generate"
+        )
+        
         # Add explanation
-        explanation = self.xai_manager.explain_cognitive_assessment(
-            assessment_data=assessment,
+        explanation = self.explanation_generator.explain_cognitive_assessment(
+            assessment_data=secure_assessment,
             learning_model=self.learning_model,
             detail_level=self.config["xai"]["default_detail_level"],
-            language_style=self.config["xai"]["default_language_style"]
+            user_id=self.user_id
         )
-        assessment["explanation"] = explanation
+        secure_assessment["explanation"] = explanation
         
-        return assessment
+        return secure_assessment
     
     def save_user_data(self) -> bool:
         """Save current user data to storage
@@ -511,14 +727,26 @@ class PersonalizedLearningSystem:
         if not self.is_initialized or not self.user_id:
             return False
         
+        if not self.verify_session():
+            print("User session expired or invalid")
+            return False
+        
         try:
             # Get current user data from learning model
             user_data = self.learning_model.get_user_data()
             
+            # Secure the user data
+            secure_user_data = self.security_manager.secure_data(
+                data=user_data,
+                user_id=self.user_id,
+                data_type="user_profile",
+                operation="save"
+            )
+            
             # Save to file
             user_data_path = Path(self.config["system"]["data_dir"]) / f"user_{self.user_id}.json"
             with open(user_data_path, 'w') as f:
-                json.dump(user_data, f, indent=2)
+                json.dump(secure_user_data, f, indent=2)
             
             print(f"User data saved for {self.user_id}")
             return True
@@ -526,6 +754,23 @@ class PersonalizedLearningSystem:
         except Exception as e:
             print(f"Error saving user data: {e}")
             return False
+    
+    def verify_data_integrity(self, record_id: str) -> Dict[str, Any]:
+        """Verify the integrity of data using blockchain
+        
+        Args:
+            record_id (str): Record identifier
+            
+        Returns:
+            Dict[str, Any]: Verification result
+        """
+        if not self.is_initialized:
+            return {"verified": False, "reason": "System not initialized"}
+        
+        # Verify through security manager
+        result = self.security_manager.verify_data_integrity(record_id)
+        
+        return result
     
     def logout_user(self) -> bool:
         """Log out the current user
@@ -543,9 +788,14 @@ class PersonalizedLearningSystem:
             # Clear user data from learning model
             self.learning_model.clear_user_data()
             
+            # Process any pending blockchain records
+            if self.config["security"]["blockchain"]["enabled"] and self.config["security"]["blockchain"]["batch_processing"]:
+                self.security_manager.process_pending_blockchain_records()
+            
             # Clear current user
             user_id = self.user_id
             self.user_id = None
+            self.session_token = None
             
             print(f"User {user_id} logged out successfully")
             return True
@@ -566,6 +816,10 @@ class PersonalizedLearningSystem:
             # Log out current user if any
             if self.user_id:
                 self.logout_user()
+            
+            # Process any pending blockchain records
+            if self.config["security"]["blockchain"]["enabled"] and self.config["security"]["blockchain"]["batch_processing"]:
+                self.security_manager.process_pending_blockchain_records()
             
             # Shutdown components
             if self.config["biosensor"]["enabled"] and self.biosensor_manager.is_initialized:
@@ -591,9 +845,17 @@ if __name__ == "__main__":
         exit(1)
     
     # Log in a user
-    if not system.login_user("test_user_001"):
-        print("Failed to log in user")
+    login_result = system.login_user(
+        "test_user_001", 
+        "simulated_auth_token_32chars_long_min"
+    )
+    
+    if not login_result["success"]:
+        print(f"Failed to log in user: {login_result['message']}")
         exit(1)
+    
+    print(f"Session token: {login_result['session_token']}")
+    print(f"Session expires: {login_result['session_expiry']}")
     
     # Define a learning goal
     goal = {
@@ -635,6 +897,12 @@ if __name__ == "__main__":
     # Get adapted content
     adapted_content = system.get_adapted_content("math_calculus_derivatives_002")
     print("Content adapted to user learning style")
+    
+    # Verify data integrity
+    if "_metadata" in adapted_content and "record_id" in adapted_content["_metadata"]:
+        record_id = adapted_content["_metadata"]["record_id"]
+        verification = system.verify_data_integrity(record_id)
+        print(f"Data verification result: {verification.get('record_found', False)}")
     
     # Save user data and log out
     system.save_user_data()
