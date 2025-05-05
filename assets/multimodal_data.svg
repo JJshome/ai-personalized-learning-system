@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa" rx="15" ry="15" />
+  
+  <!-- Title -->
+  <text x="300" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4158D0">
+    다중 모달 데이터 수집
+  </text>
+  
+  <!-- Student character with sensors -->
+  <g transform="translate(300, 200)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="50" fill="#FFE0BD" stroke="#6B4F4F" stroke-width="2" />
+    
+    <!-- Face -->
+    <circle cx="-15" cy="-10" r="5" fill="#6B4F4F" /> <!-- Left eye -->
+    <circle cx="15" cy="-10" r="5" fill="#6B4F4F" /> <!-- Right eye -->
+    <path d="M0,15 C10,25 20,25 30,15" fill="none" stroke="#6B4F4F" stroke-width="3" stroke-linecap="round" /> <!-- Smile -->
+    
+    <!-- Hair -->
+    <path d="M-50,-10 C-40,-40 -20,-60 0,-60 C20,-60 40,-40 50,-10" fill="#6B4F4F" />
+    
+    <!-- EEG headset -->
+    <path d="M-40,-40 C-30,-55 -15,-65 0,-65 C15,-65 30,-55 40,-40" fill="none" stroke="#4158D0" stroke-width="3" stroke-linecap="round" />
+    <circle cx="-30" cy="-50" r="5" fill="#4158D0" />
+    <circle cx="-15" cy="-58" r="5" fill="#4158D0" />
+    <circle cx="0" cy="-60" r="5" fill="#4158D0" />
+    <circle cx="15" cy="-58" r="5" fill="#4158D0" />
+    <circle cx="30" cy="-50" r="5" fill="#4158D0" />
+    
+    <!-- Eye tracker -->
+    <rect x="-20" y="-20" width="40" height="15" rx="5" ry="5" fill="#C850C0" />
+    <path d="M-10,-12 L10,-12" stroke="#FFFFFF" stroke-width="2" />
+    
+    <!-- Earable biosensor (ear insert) -->
+    <g transform="translate(55, 0)">
+      <path d="M0,0 C10,0 15,10 15,20 C15,30 10,40 0,40 C-10,40 -15,30 -15,20 C-15,10 -10,0 0,0 Z" fill="#FFE0BD" stroke="#6B4F4F" stroke-width="2" />
+      <circle cx="0" cy="20" r="8" fill="#FFCC70" stroke="#6B4F4F" stroke-width="1" />
+      <circle cx="0" cy="20" r="3" fill="#6B4F4F" />
+    </g>
+    
+    <!-- Heart rate monitor on wrist -->
+    <g transform="translate(-80, 50)">
+      <rect x="-15" y="-10" width="30" height="20" rx="5" ry="5" fill="#845EF7" stroke="#6B4F4F" stroke-width="1" />
+      <path d="M-10,0 L-5,-5 L0,0 L5,5 L10,0" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+  
+  <!-- Data flows -->
+  <!-- EEG data flow -->
+  <g transform="translate(300, 140)">
+    <path d="M0,-60 C30,-80 60,-90 120,-60" fill="none" stroke="#4158D0" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M120,-60 L140,-60 L140,-40" fill="none" stroke="#4158D0" stroke-width="2" />
+    <rect x="100" y="-80" width="80" height="40" rx="5" ry="5" fill="#E6F7FF" stroke="#4158D0" stroke-width="2" />
+    <text x="140" y="-55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">뇌파 (EEG)</text>
+    
+    <!-- Brain wave visualization -->
+    <path d="M110,-60 L115,-65 L120,-55 L125,-65 L130,-55 L135,-65 L140,-55 L145,-65 L150,-60 L155,-65 L160,-55 L165,-65 L170,-60" fill="none" stroke="#4158D0" stroke-width="1" />
+  </g>
+  
+  <!-- Eye tracking data flow -->
+  <g transform="translate(300, 180)">
+    <path d="M0,-20 C30,-30 60,-50 120,-10" fill="none" stroke="#C850C0" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M120,-10 L140,-10 L140,0" fill="none" stroke="#C850C0" stroke-width="2" />
+    <rect x="100" y="-30" width="80" height="40" rx="5" ry="5" fill="#FFF0F6" stroke="#C850C0" stroke-width="2" />
+    <text x="140" y="-5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">시선 추적</text>
+    
+    <!-- Eye tracking visualization -->
+    <circle cx="120" cy="-15" r="3" fill="#C850C0" />
+    <circle cx="130" cy="-10" r="3" fill="#C850C0" />
+    <circle cx="140" cy="-12" r="3" fill="#C850C0" />
+    <circle cx="150" cy="-18" r="3" fill="#C850C0" />
+    <circle cx="160" cy="-15" r="3" fill="#C850C0" />
+  </g>
+  
+  <!-- Ear biosensor data flow -->
+  <g transform="translate(300, 200)">
+    <path d="M55,20 C100,20 120,30 140,40" fill="none" stroke="#FFCC70" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M140,40 L160,40 L160,50" fill="none" stroke="#FFCC70" stroke-width="2" />
+    <rect x="120" y="20" width="80" height="40" rx="5" ry="5" fill="#FFF9DB" stroke="#FFCC70" stroke-width="2" />
+    <text x="160" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">귀 삽입물 센서</text>
+  </g>
+  
+  <!-- Heart rate data flow -->
+  <g transform="translate(300, 200)">
+    <path d="M-80,50 C-120,80 -140,90 -140,130" fill="none" stroke="#845EF7" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M-140,130 L-120,130 L-120,150" fill="none" stroke="#845EF7" stroke-width="2" />
+    <rect x="-180" y="110" width="80" height="40" rx="5" ry="5" fill="#F3F0FF" stroke="#845EF7" stroke-width="2" />
+    <text x="-140" y="135" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">심박수</text>
+    
+    <!-- Heart rate visualization -->
+    <path d="M-170,130 L-165,130 L-160,120 L-155,140 L-150,130 L-145,130" fill="none" stroke="#845EF7" stroke-width="1" />
+  </g>
+  
+  <!-- Learning activity data flow -->
+  <g transform="translate(300, 200)">
+    <path d="M0,50 C0,80 -20,100 -50,110" fill="none" stroke="#20C997" stroke-width="2" stroke-dasharray="5,3" />
+    <path d="M-50,110 L-50,130 L-30,130" fill="none" stroke="#20C997" stroke-width="2" />
+    <rect x="-70" y="110" width="80" height="40" rx="5" ry="5" fill="#E6FCF5" stroke="#20C997" stroke-width="2" />
+    <text x="-30" y="135" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">학습 활동</text>
+  </g>
+  
+  <!-- Central data processing -->
+  <g transform="translate(300, 350)">
+    <rect x="-100" y="-30" width="200" height="60" rx="10" ry="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="3" />
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#4158D0">
+      멀티모달 데이터 처리
+    </text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">
+      엣지 AI로 개인정보 보호
+    </text>
+    
+    <!-- Connection lines from all data sources -->
+    <line x1="-140" y1="-70" x2="-50" y2="-30" stroke="#845EF7" stroke-width="2" />
+    <line x1="-30" y1="-80" x2="-30" y2="-30" stroke="#20C997" stroke-width="2" />
+    <line x1="140" y1="-100" x2="50" y2="-30" stroke="#4158D0" stroke-width="2" />
+    <line x1="140" y1="-50" x2="30" y2="-30" stroke="#C850C0" stroke-width="2" />
+    <line x1="160" y1="-30" x2="70" y2="-10" stroke="#FFCC70" stroke-width="2" />
+  </g>
+</svg>
