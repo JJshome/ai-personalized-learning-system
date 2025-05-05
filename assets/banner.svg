@@ -1,79 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background gradient -->
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4158D0" />
-      <stop offset="46%" style="stop-color:#C850C0" />
-      <stop offset="100%" style="stop-color:#FFCC70" />
-    </linearGradient>
+    <!-- 빛 효과를 위한 필터 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- 애니메이션 경로 -->
+    <path id="bluePath" d="M 200,230 Q 250,180 300,230 Q 350,280 400,230 Q 450,180 500,230" fill="none" stroke="rgba(70,130,255,0.3)" stroke-width="3" stroke-dasharray="5,5" />
+    
+    <path id="pinkPath" d="M 100,330 Q 150,290 200,330 Q 250,370 300,330 Q 350,290 400,330 Q 450,370 500,330" fill="none" stroke="rgba(255,70,180,0.3)" stroke-width="3" stroke-dasharray="5,5" />
   </defs>
   
-  <!-- Background rectangle -->
-  <rect width="800" height="300" rx="20" ry="20" fill="url(#bg-gradient)" opacity="0.2" />
+  <!-- 배경 그라데이션 -->
+  <rect x="0" y="0" width="800" height="400" fill="url(#bgGradient)" rx="15" ry="15" />
+  <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#d8e0ff" />
+    <stop offset="100%" stop-color="#fff5e0" />
+  </linearGradient>
   
-  <!-- Main brain illustration -->
-  <g transform="translate(540, 150) scale(0.8)">
-    <!-- Brain outline -->
-    <path d="M100,0 C120,-20 150,-25 175,-10 C200,-30 240,-30 260,-10 C280,0 280,20 270,40 C290,50 300,80 280,100 C290,120 280,150 260,160 C270,180 260,200 240,210 C230,230 210,240 190,230 C170,250 140,250 120,230 C100,240 80,230 70,210 C50,220 30,210 20,190 C0,180 -10,150 0,130 C-20,110 -10,80 10,70 C0,50 10,20 30,10 C50,-10 80,-10 100,0" 
-          fill="#FFF8E8" stroke="#6B4F4F" stroke-width="3" />
-          
-    <!-- Brain folds -->
-    <path d="M100,0 C110,30 120,50 150,50 M175,-10 C160,20 150,40 150,50 M260,-10 C240,20 210,30 180,20 M270,40 C230,40 200,40 180,20 M280,100 C250,90 230,70 220,40 M260,160 C240,140 230,110 240,80 M240,210 C230,180 240,150 260,160 M190,230 C200,200 220,180 240,180 M120,230 C130,200 150,190 180,200 M70,210 C90,190 120,190 150,200 M20,190 C40,180 60,190 70,210 M0,130 C20,140 30,160 30,180 M10,70 C30,90 40,110 30,130 M30,10 C50,30 60,50 50,80" 
-          fill="none" stroke="#6B4F4F" stroke-width="2" />
+  <!-- 제목 텍스트 -->
+  <text x="400" y="160" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#4169e1">AI 기반 개인 맞춤형 학습 경로 추천 시스템</text>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">AI-based Personalized Learning Path Recommendation System</text>
+  
+  <!-- 경로 (위의 defs에서 정의됨) -->
+  <use href="#bluePath" />
+  <use href="#pinkPath" />
+  
+  <!-- 뇌 이미지 (단순화된 버전) -->
+  <path d="M 700,300 C 750,250 780,300 760,350 C 780,400 730,450 680,430 C 630,450 580,400 600,350 C 580,300 650,250 700,300" fill="none" stroke="#f0e8d0" stroke-width="3" />
+  
+  <!-- 캐릭터 얼굴 -->
+  <circle cx="140" cy="280" r="40" fill="#f9d7bd" />
+  <path d="M 110,290 Q 140,320 170,290" fill="none" stroke="#333" stroke-width="2" />
+  <circle cx="120" cy="260" r="5" fill="#333" />
+  <circle cx="160" cy="260" r="5" fill="#333" />
+  <path d="M 100,230 C 120,220 160,220 180,230" fill="#333" />
+  
+  <!-- 전구/아이디어 -->
+  <circle cx="140" cy="180" r="30" fill="#ffeb3b" filter="url(#glow)" />
+  <circle cx="140" cy="180" r="25" fill="#ffee58" />
+  
+  <!-- 아이콘 (브레인 로고) -->
+  <g transform="translate(40, 45) scale(0.75)">
+    <path d="M 40,40 C 20,30 10,50 30,60 C 10,70 20,90 40,80 C 60,90 70,70 50,60 C 70,50 60,30 40,40" fill="#ff80ab" stroke="none" />
   </g>
   
-  <!-- Digital circuits coming out of the brain -->
-  <path d="M380,110 L320,90 L280,120 L230,100 L180,130 L130,110 L80,140" 
-        fill="none" stroke="#4158D0" stroke-width="3" stroke-linecap="round" stroke-dasharray="1, 6" />
-  <path d="M380,170 L320,190 L270,170 L220,200 L170,180 L120,210 L70,190" 
-        fill="none" stroke="#C850C0" stroke-width="3" stroke-linecap="round" stroke-dasharray="1, 6" />
+  <!-- 움직이는 빛 효과 -->
+  <circle id="blueLight" r="6" fill="#4169e1" filter="url(#glow)">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 200,230 Q 250,180 300,230 Q 350,280 400,230 Q 450,180 500,230" />
+  </circle>
   
-  <!-- Circuit nodes -->
-  <circle cx="320" cy="90" r="6" fill="#4158D0" />
-  <circle cx="280" cy="120" r="6" fill="#4158D0" />
-  <circle cx="230" cy="100" r="6" fill="#4158D0" />
-  <circle cx="180" cy="130" r="6" fill="#4158D0" />
-  <circle cx="130" cy="110" r="6" fill="#4158D0" />
-  <circle cx="80" cy="140" r="6" fill="#4158D0" />
-  
-  <circle cx="320" cy="190" r="6" fill="#C850C0" />
-  <circle cx="270" cy="170" r="6" fill="#C850C0" />
-  <circle cx="220" cy="200" r="6" fill="#C850C0" />
-  <circle cx="170" cy="180" r="6" fill="#C850C0" />
-  <circle cx="120" cy="210" r="6" fill="#C850C0" />
-  <circle cx="70" cy="190" r="6" fill="#C850C0" />
-  
-  <!-- Cartoon student character -->
-  <g transform="translate(100, 170)">
-    <!-- Head -->
-    <circle cx="0" cy="0" r="30" fill="#FFE0BD" stroke="#6B4F4F" stroke-width="2" />
-    
-    <!-- Face -->
-    <circle cx="-10" cy="-5" r="3" fill="#6B4F4F" /> <!-- Left eye -->
-    <circle cx="10" cy="-5" r="3" fill="#6B4F4F" /> <!-- Right eye -->
-    <path d="M0,5 C5,10 10,10 15,5" fill="none" stroke="#6B4F4F" stroke-width="2" stroke-linecap="round" /> <!-- Smile -->
-    
-    <!-- Hair -->
-    <path d="M-30,-5 C-25,-25 -10,-35 0,-35 C10,-35 25,-25 30,-5" fill="#6B4F4F" />
-    
-    <!-- Light bulb idea -->
-    <circle cx="0" cy="-55" r="15" fill="#FFFF00" stroke="#6B4F4F" stroke-width="2" />
-    <path d="M0,-40 L0,-35" stroke="#6B4F4F" stroke-width="2" />
-    <path d="M-5,-65 L5,-65 L5,-60 L-5,-60 Z" fill="#6B4F4F" />
-    
-    <!-- Rays of light -->
-    <path d="M-20,-55 L-35,-55 M20,-55 L35,-55 M0,-75 L0,-90 M-15,-70 L-25,-80 M15,-70 L25,-80 M-15,-40 L-25,-30 M15,-40 L25,-30" 
-          stroke="#FFFF00" stroke-width="2" stroke-linecap="round" />
-  </g>
-  
-  <!-- Title text -->
-  <text x="400" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#4158D0">
-    AI 기반 개인 맞춤형 학습 경로 추천 시스템
-  </text>
-  
-  <!-- Subtitle text -->
-  <text x="400" y="90" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#6B4F4F">
-    AI-based Personalized Learning Path Recommendation System
-  </text>
+  <circle id="pinkLight" r="6" fill="#ff47b6" filter="url(#glow)">
+    <animateMotion dur="4.5s" repeatCount="indefinite" path="M 100,330 Q 150,290 200,330 Q 250,370 300,330 Q 350,290 400,330 Q 450,370 500,330" />
+  </circle>
 </svg>
