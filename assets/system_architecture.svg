@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.02); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -50; }
+    }
+    .pulse { animation: pulse 3s infinite ease-in-out; }
+    .data-flow { animation: dash 10s infinite linear; stroke-dasharray: 10 5; stroke-dashoffset: 0; }
+    .module { fill-opacity: 0.9; }
+    .module:hover { fill-opacity: 1; cursor: pointer; }
+    text { font-family: Arial, sans-serif; fill: #ffffff; }
+    .title { font-size: 24px; font-weight: bold; }
+    .subtitle { font-size: 14px; }
+    .module-title { font-size: 16px; font-weight: bold; }
+    .module-desc { font-size: 12px; }
+  </style>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a237e" rx="15" ry="15" />
+  
+  <!-- Title and Subtitle -->
+  <text x="400" y="40" class="title" text-anchor="middle">AI Personalized Learning System Architecture</text>
+  <text x="400" y="65" class="subtitle" text-anchor="middle">Based on patent by Ucaretron Inc. (Inventor: Jee Hwan Jang)</text>
+
+  <!-- Main Components -->
+  <!-- Data Collection Unit (110) -->
+  <g transform="translate(150, 150)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#4a148c" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">Learning Data Collection Unit (110)</text>
+    <text x="0" y="-10" class="module-desc" text-anchor="middle">Biometric Sensors, Eye Tracking,</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">Facial Recognition, Voice Analysis,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Smartphone, IoT Sensors</text>
+  </g>
+
+  <!-- AI Analysis Unit (120) -->
+  <g transform="translate(400, 150)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#3f51b5" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">AI Learning Analysis &</text>
+    <text x="0" y="-10" class="module-title" text-anchor="middle">Path Recommendation (120)</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">Deep Learning, Reinforcement Learning,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">NLP, Knowledge Graphs</text>
+  </g>
+
+  <!-- Content Management Unit (130) -->
+  <g transform="translate(650, 150)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#673ab7" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">Learning Content Provision &</text>
+    <text x="0" y="-10" class="module-title" text-anchor="middle">Management Unit (130)</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">AI Generated Content, VR/AR,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Adaptive Learning Materials</text>
+  </g>
+
+  <!-- User Interface Unit (140) -->
+  <g transform="translate(400, 320)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#7e57c2" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">User Interface Unit (140)</text>
+    <text x="0" y="-10" class="module-desc" text-anchor="middle">Conversational AI Tutor,</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">Brain-Computer Interface,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Web/Mobile Applications</text>
+  </g>
+
+  <!-- Security Module (150) -->
+  <g transform="translate(150, 320)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#5e35b1" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">Security & Privacy</text>
+    <text x="0" y="-10" class="module-title" text-anchor="middle">Protection Module (150)</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">Homomorphic Encryption,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Blockchain, Differential Privacy</text>
+  </g>
+
+  <!-- XAI Module (160) -->
+  <g transform="translate(650, 320)">
+    <rect x="-120" y="-60" width="240" height="120" rx="10" ry="10" fill="#512da8" class="module pulse" />
+    <text x="0" y="-30" class="module-title" text-anchor="middle">Explainable AI (XAI)</text>
+    <text x="0" y="-10" class="module-title" text-anchor="middle">Module (160)</text>
+    <text x="0" y="10" class="module-desc" text-anchor="middle">AI Decision Explanation,</text>
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Visualization, Transparency</text>
+  </g>
+
+  <!-- Connection Lines -->
+  <!-- 110 to 120 -->
+  <line x1="210" y1="150" x2="340" y2="150" stroke="#64ffda" stroke-width="3" class="data-flow" />
+  <!-- 120 to 130 -->
+  <line x1="460" y1="150" x2="590" y2="150" stroke="#64ffda" stroke-width="3" class="data-flow" />
+  <!-- 130 to 140 -->
+  <line x1="650" y1="210" x2="530" y2="270" stroke="#64ffda" stroke-width="3" class="data-flow" />
+  <!-- 140 to 110 (feedback loop) -->
+  <path d="M340,320 C250,320 250,250 250,200" stroke="#64ffda" stroke-width="3" fill="none" class="data-flow" />
+  <!-- 120 to 140 -->
+  <line x1="400" y1="210" x2="400" y2="260" stroke="#64ffda" stroke-width="3" class="data-flow" />
+  <!-- 150 to all (bidirectional security) -->
+  <path d="M220,260 C250,230 300,230 400,230" stroke="#ff1744" stroke-width="2" fill="none" class="data-flow" />
+  <path d="M220,240 C250,200 300,200 500,200" stroke="#ff1744" stroke-width="2" fill="none" class="data-flow" />
+  <!-- 160 to all (XAI explanations) -->
+  <path d="M580,320 C550,290 500,270 450,270" stroke="#76ff03" stroke-width="2" fill="none" class="data-flow" />
+  <path d="M580,300 C550,270 500,250 400,220" stroke="#76ff03" stroke-width="2" fill="none" class="data-flow" />
+  
+  <!-- User, Teacher, Parent -->
+  <g transform="translate(400, 440)">
+    <circle cx="-80" cy="0" r="15" fill="#ff9800" />
+    <text x="-80" y="30" class="module-desc" text-anchor="middle">Student</text>
+    
+    <circle cx="0" cy="0" r="15" fill="#ff9800" />
+    <text x="0" y="30" class="module-desc" text-anchor="middle">Teacher</text>
+    
+    <circle cx="80" cy="0" r="15" fill="#ff9800" />
+    <text x="80" y="30" class="module-desc" text-anchor="middle">Parent</text>
+    
+    <!-- Connect users to UI -->
+    <line x1="-80" y1="-15" x2="-80" y2="-50" stroke="#ffeb3b" stroke-width="2" />
+    <line x1="0" y1="-15" x2="0" y2="-50" stroke="#ffeb3b" stroke-width="2" />
+    <line x1="80" y1="-15" x2="80" y2="-50" stroke="#ffeb3b" stroke-width="2" />
+  </g>
+</svg>
