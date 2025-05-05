@@ -1,140 +1,208 @@
-# AI-based Personalized Learning Path Recommendation and Management System
+# 🧠 AI 기반 개인 맞춤형 학습 경로 추천 시스템
 
-## Overview
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/banner.svg" alt="AI Learning System Banner" width="800"/>
+</p>
 
-This system provides personalized learning experiences through AI-driven analysis of learner characteristics, goals, learning styles, and real-time biometric data. It recommends optimized learning paths, adapts content to individual needs, and offers explainable AI features that make the system's decisions transparent to users.
+## 🚀 시스템 개요
 
-## Key Features
+이 시스템은 생체신호 분석과 AI 기술을 활용하여 학습자 개인별 특성, 목표, 학습 스타일, 실시간 인지 상태에 기반한 맞춤형 학습 경험을 제공합니다. 학습 효과를 최대화하기 위해 최적화된 학습 경로를 추천하고, 실시간으로 콘텐츠를 조정하며, 설명 가능한 AI 기능으로 시스템의 결정을 사용자에게 투명하게 제공합니다.
 
-- **Multi-modal Data Collection**: Collects data through wearable sensors (like EEG, heart rate, eye tracking) and learning interactions to build a comprehensive learner profile
-- **AI-driven Personalization**: Uses advanced AI algorithms including reinforcement learning and neural networks to generate personalized learning paths
-- **Dynamic Learning Path Adaptation**: Continuously adjusts recommendations based on learner progress and real-time cognitive state
-- **Content Personalization**: Adapts learning content based on individual learning styles and preferences
-- **Explainable AI (XAI)**: Provides clear explanations for AI recommendations and decisions through visualizations and natural language explanations
-- **Edge AI Processing**: Processes sensitive biometric data directly on edge devices for privacy and real-time feedback
-- **Cognitive State Monitoring**: Tracks attention, cognitive load, and engagement in real-time to optimize the learning experience
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/system_overview.svg" alt="System Overview" width="700"/>
+</p>
 
-## System Architecture
+## ✨ 핵심 기능
 
-The system consists of several integrated components:
+### 🎯 다중 모달 데이터 수집
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/multimodal_data.svg" alt="Multimodal Data Collection" width="600"/>
+</p>
 
-1. **Data Collection Subsystem**
-   - Biosensor data collection from wearable devices
-   - Learning activity tracking and processing
-   - Edge AI for privacy-preserving data analysis
+- **웨어러블 생체 센서**: EEG(뇌파), 심박수, 안구 추적 등 다양한 생체 신호를 실시간 수집
+- **학습 활동 데이터**: 상호작용 패턴, 선호도, 반응 시간 분석
+- **귀 삽입물 생체 센서**: 초소형 센서로 편리하게 실시간 생체 신호 측정
 
-2. **AI Analysis and Path Recommendation**
-   - Learning model that captures knowledge state, learning style, and cognitive profile
-   - Path generator that creates personalized learning sequences
-   - Reinforcement learning algorithms for path optimization
+### 🤖 AI 기반 개인화
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/ai_personalization.svg" alt="AI-Driven Personalization" width="600"/>
+</p>
 
-3. **Content Management and Adaptation**
-   - Content repository integration
-   - Adaptive content presentation based on learner needs
-   - Real-time content modification
+- **강화학습 기반 경로 최적화**: 학습자 상태와 학습 목표에 따른 최적 학습 경로 생성
+- **지식 그래프 모델링**: 학습 개념 간 관계를 그래프로 모델링하여 효과적인 학습 순서 구성
+- **개인화된 예측 모델**: 학습자별 인지 상태와 성과를 예측하는 맞춤형 AI 모델
 
-4. **Explainable AI (XAI) Module**
-   - Explanation generation for system decisions
-   - Visualization creation for insights
-   - Model transparency and trust-building features
+### 🔄 동적 학습 경로 적응
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/adaptive_path.svg" alt="Dynamic Learning Path" width="600"/>
+</p>
 
-5. **User Interface**
-   - Natural language interaction
-   - Visual dashboards for learning progress
-   - Accessible explanations of AI recommendations
+- **실시간 경로 조정**: 학습 진행 상황과 인지 상태에 따라 학습 경로를 동적으로 조정
+- **마이크로 러닝 경로**: 작은 학습 단위로 구성된 적응형 경로 생성
+- **대안 경로 제안**: 다양한 학습 방식과 콘텐츠 유형을 포함한 대안 경로 제시
 
-## Technical Details
+### 📚 콘텐츠 개인화
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/content_personalization.svg" alt="Content Personalization" width="600"/>
+</p>
 
-### Advanced Technologies Used
+- **학습 스타일 기반 조정**: 시각/언어적, 능동/반성적 등 학습 스타일에 맞게 콘텐츠 조정
+- **AI 생성 콘텐츠**: 개인 수준에 맞는 맞춤형 콘텐츠 실시간 생성
+- **난이도 동적 조절**: 학습자의 이해도와 인지 부하에 맞춰 콘텐츠 난이도 조절
 
-- **Ear-insertable Biosensors**: Miniature sensors that collect EEG, heart rate, and other biological signals
-- **Edge AI Chips**: Processing sensitive data locally for privacy and low latency
-- **Reinforcement Learning**: For optimizing learning paths based on individual needs
-- **Federated Learning**: Allowing model improvements while protecting privacy
-- **Transformer Models**: For processing temporal learning data sequences
-- **Knowledge Graphs**: Representing connections between learning concepts
-- **Explainable AI Algorithms**: SHAP values, attention visualization, and natural language explanations
+### 📊 설명 가능한 AI (XAI)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/explainable_ai.svg" alt="Explainable AI" width="600"/>
+</p>
 
-### Implementation Notes
+- **추천 근거 시각화**: AI의 추천 결정 과정을 시각적으로 표현
+- **자연어 설명 생성**: 학습 경로와 적응 결정에 대한 이해하기 쉬운 설명 제공
+- **투명한 모델 결정**: SHAP 값과 주의력 시각화를 통한 모델 결정 투명성 확보
 
-The system is built with a modular architecture to allow for flexible deployment and customization:
+### 🔒 보안 및 개인정보 보호
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/security_privacy.svg" alt="Security and Privacy" width="600"/>
+</p>
 
-- Written in Python with an emphasis on clean, well-documented code
-- Uses state-of-the-art machine learning libraries
-- Implements security and privacy by design
-- Provides comprehensive API documentation
+- **동형 암호화**: 암호화된 상태로 데이터 처리 가능
+- **차등 프라이버시**: 개인정보 보호와 데이터 유용성의 균형 유지
+- **블록체인 기반 무결성**: 학습 기록의 무결성을 블록체인으로 보장
+- **엣지 컴퓨팅 보호**: 민감한 생체 데이터를 엣지 장치에서 직접 처리
 
-## Potential Applications
+### 🧠 인지 상태 모니터링
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/cognitive_monitoring.svg" alt="Cognitive State Monitoring" width="600"/>
+</p>
 
-- **K-12 Education**: Personalized learning paths for students of all ages
-- **Higher Education**: University course adaptation and study path optimization
-- **Corporate Training**: Skill development and professional education
-- **Lifelong Learning**: Self-directed education for adults
-- **Special Education**: Customized approaches for learners with special needs
-- **Remote Learning**: Enhanced engagement for distance education
+- **실시간 집중도 추적**: 생체 신호를 통한 집중도와 참여도 실시간 모니터링
+- **인지 부하 측정**: 작업 기억 용량과 정보 처리 부하 측정
+- **최적 학습 구간 예측**: 개인별 최적 학습 시간대와 기간 예측
 
-## Getting Started
+## 🏛️ 시스템 아키텍처
 
-### Prerequisites
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JJshome/ai-personalized-learning-system/main/assets/architecture.svg" alt="System Architecture" width="800"/>
+</p>
+
+시스템은 다음과 같은 통합된 구성 요소로 이루어져 있습니다:
+
+1. **데이터 수집 서브시스템**
+   - 웨어러블 기기에서 생체 센서 데이터 수집
+   - 학습 활동 추적 및 처리
+   - 엣지 AI를 통한 개인정보 보호 데이터 분석
+
+2. **AI 분석 및 경로 추천**
+   - 지식 상태, 학습 스타일, 인지 프로필을 포착하는 학습 모델
+   - 개인화된 학습 시퀀스를 생성하는 경로 생성기
+   - 경로 최적화를 위한 강화 학습 알고리즘
+
+3. **콘텐츠 관리 및 적응**
+   - 콘텐츠 저장소 통합
+   - 학습자 요구에 기반한 적응형 콘텐츠 제공
+   - 실시간 콘텐츠 수정
+
+4. **설명 가능한 AI (XAI) 모듈**
+   - 시스템 결정에 대한 설명 생성
+   - 인사이트를 위한 시각화 생성
+   - 모델 투명성 및 신뢰 구축 기능
+
+5. **보안 및 개인정보 보호 모듈**
+   - 동형 암호화 및 차등 프라이버시 기술
+   - 블록체인 기반 데이터 무결성
+   - 엣지 컴퓨팅 프라이버시 보호
+
+## 🛠️ 기술 상세
+
+### 첨단 기술 활용
+
+- **귀 삽입물 생체 센서**: EEG, 심박수 등 생체 신호를 수집하는 초소형 센서
+- **엣지 AI 칩**: 개인정보 보호와 저지연을 위한 로컬 데이터 처리
+- **강화 학습**: 개인 요구에 기반한 학습 경로 최적화
+- **연합 학습**: 개인정보를 보호하면서 모델 개선 가능
+- **트랜스포머 모델**: 시계열 학습 데이터 시퀀스 처리
+- **지식 그래프**: 학습 개념 간 연결 표현
+- **설명 가능한 AI 알고리즘**: SHAP 값, 주의력 시각화, 자연어 설명
+
+### 구현 참고사항
+
+시스템은 모듈식 아키텍처로 유연한 배포와 사용자 지정이 가능합니다:
+
+- Python 기반 구현으로 깔끔하고 잘 문서화된 코드
+- 최첨단 머신러닝 라이브러리 활용
+- 설계부터 보안 및 개인정보 보호 고려
+- 포괄적인 API 문서 제공
+
+## 📊 활용 분야
+
+- **K-12 교육**: 모든 연령대 학생을 위한 맞춤형 학습 경로
+- **고등 교육**: 대학 과정 적응 및 학습 경로 최적화
+- **기업 교육**: 기술 개발 및 전문 교육
+- **평생 학습**: 성인을 위한 자기 주도적 교육
+- **특수 교육**: 특별한 요구를 가진 학습자를 위한 맞춤형 접근
+- **원격 학습**: 원격 교육을 위한 향상된 참여도
+
+## 🚀 시작하기
+
+### 필요 조건
 
 - Python 3.9+
-- Required packages (see requirements.txt)
-- Compatible biosensor devices (optional)
+- 필수 패키지 (requirements.txt 참조)
+- 호환 가능한 생체 센서 기기 (선택 사항)
 
-### Installation
+### 설치
 
-1. Clone the repository:
+1. 저장소 복제:
 ```bash
 git clone https://github.com/JJshome/ai-personalized-learning-system.git
 cd ai-personalized-learning-system
 ```
 
-2. Install dependencies:
+2. 의존성 설치:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure the system:
+3. 시스템 구성:
 ```bash
 cp config.example.json config.json
-# Edit config.json with your settings
+# config.json 수정
 ```
 
-4. Run the system:
+4. 시스템 실행:
 ```bash
 python src/main.py
 ```
 
-## Documentation
+## 📚 문서
 
-For more detailed information, see the following documentation:
+더 자세한 정보는 다음 문서를 참조하세요:
 
-- [System Architecture](docs/architecture.md)
-- [API Reference](docs/api.md)
-- [User Guide](docs/user_guide.md)
-- [Developer Guide](docs/developer_guide.md)
-- [Biosensor Integration](docs/biosensors.md)
+- [시스템 아키텍처](docs/architecture.md)
+- [API 참조](docs/api.md)
+- [사용자 가이드](docs/user_guide.md)
+- [개발자 가이드](docs/developer_guide.md)
+- [생체 센서 통합](docs/biosensors.md)
 
-## Research Background
+## 🔬 연구 배경
 
-This system is based on cutting-edge research in educational technology, cognitive science, and artificial intelligence. Key research areas include:
+이 시스템은 교육 공학, 인지 과학, 인공지능 분야의 최첨단 연구를 기반으로 합니다. 주요 연구 영역은 다음과 같습니다:
 
-- Personalized learning and adaptive educational systems
-- Cognitive load theory and attention management
-- Machine learning applications in education
-- Explainable AI for educational technology
-- Biometric data analysis for cognitive state assessment
+- 개인화 학습 및 적응형 교육 시스템
+- 인지 부하 이론 및 주의력 관리
+- 교육에서의 기계 학습 응용
+- 교육 기술을 위한 설명 가능한 AI
+- 인지 상태 평가를 위한 생체 데이터 분석
 
-## Contributing
+## 🤝 기여하기
 
-We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+커뮤니티의 기여를 환영합니다! 자세한 내용은 [기여 가이드라인](CONTRIBUTING.md)을 참조하세요.
 
-## License
+## 📄 라이선스
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+이 프로젝트는 MIT 라이선스에 따라 라이선스가 부여됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
-## Acknowledgments
+## 🙏 감사의 말
 
-- Educational technology research community
-- Open source AI and ML libraries
-- Contributors and testers
+- 교육 기술 연구 커뮤니티
+- 오픈 소스 AI 및 ML 라이브러리
+- 기여자 및 테스터
