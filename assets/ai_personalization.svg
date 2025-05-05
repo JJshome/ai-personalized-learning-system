@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa" rx="15" ry="15" />
+  
+  <!-- Title -->
+  <text x="300" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#C850C0">
+    AI 기반 개인화
+  </text>
+  
+  <!-- AI Brain at center -->
+  <g transform="translate(300, 200)">
+    <!-- Brain outline -->
+    <path d="M-60,0 C-50,-20 -30,-25 -15,-10 C0,-30 30,-30 40,-10 C50,0 50,20 40,40 C60,50 70,80 50,100 C60,120 50,150 30,160 C40,180 30,200 10,210 C0,230 -20,240 -40,230 C-60,250 -90,250 -110,230 C-130,240 -150,230 -160,210 C-180,220 -200,210 -210,190 C-230,180 -240,150 -230,130 C-250,110 -240,80 -220,70 C-230,50 -220,20 -200,10 C-180,-10 -150,-10 -130,0 C-110,-20 -90,-25 -75,-10 C-70,-20 -65,-10 -60,0" 
+          fill="#C850C0" fill-opacity="0.2" stroke="#C850C0" stroke-width="3" />
+          
+    <!-- Brain folds -->
+    <path d="M-130,0 C-120,30 -110,50 -80,50 M-75,-10 C-90,20 -100,40 -100,50 M40,-10 C20,20 -10,30 -40,20 M40,40 C0,40 -30,40 -50,20 M50,100 C20,90 0,70 -10,40 M30,160 C10,140 0,110 10,80 M10,210 C0,180 10,150 30,160 M-40,230 C-30,200 -10,180 10,180 M-110,230 C-100,200 -80,190 -50,200 M-160,210 C-140,190 -110,190 -80,200 M-210,190 C-190,180 -170,190 -160,210 M-230,130 C-210,140 -200,160 -200,180 M-220,70 C-200,90 -190,110 -200,130 M-200,10 C-180,30 -170,50 -180,80" 
+          fill="none" stroke="#C850C0" stroke-width="2" />
+  </g>
+  
+  <!-- AI Model Layers (neural network) -->
+  <g transform="translate(300, 200)">
+    <!-- Input Layer -->
+    <g transform="translate(-120, 0)">
+      <circle cx="0" cy="-60" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="-30" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="30" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="60" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <text x="0" cy="-90" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#4158D0">입력 데이터</text>
+    </g>
+    
+    <!-- Hidden Layer 1 -->
+    <g transform="translate(-40, 0)">
+      <circle cx="0" cy="-70" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="-35" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="35" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="70" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+    </g>
+    
+    <!-- Hidden Layer 2 -->
+    <g transform="translate(40, 0)">
+      <circle cx="0" cy="-55" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="-20" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="15" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="50" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+    </g>
+    
+    <!-- Output Layer -->
+    <g transform="translate(120, 0)">
+      <circle cx="0" cy="-30" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <circle cx="0" cy="30" r="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+      <text x="0" y="-60" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#4158D0">개인화된 결과</text>
+    </g>
+    
+    <!-- Connections between layers -->
+    <!-- Input to Hidden 1 -->
+    <g stroke="#4158D0" stroke-width="1" stroke-opacity="0.3">
+      <!-- Connect each input node to each hidden1 node -->
+      <line x1="-110" y1="-60" x2="-50" y2="-70" />
+      <line x1="-110" y1="-60" x2="-50" y2="-35" />
+      <line x1="-110" y1="-60" x2="-50" y2="0" />
+      <line x1="-110" y1="-60" x2="-50" y2="35" />
+      <line x1="-110" y1="-60" x2="-50" y2="70" />
+      
+      <line x1="-110" y1="-30" x2="-50" y2="-70" />
+      <line x1="-110" y1="-30" x2="-50" y2="-35" />
+      <line x1="-110" y1="-30" x2="-50" y2="0" />
+      <line x1="-110" y1="-30" x2="-50" y2="35" />
+      <line x1="-110" y1="-30" x2="-50" y2="70" />
+      
+      <line x1="-110" y1="0" x2="-50" y2="-70" />
+      <line x1="-110" y1="0" x2="-50" y2="-35" />
+      <line x1="-110" y1="0" x2="-50" y2="0" />
+      <line x1="-110" y1="0" x2="-50" y2="35" />
+      <line x1="-110" y1="0" x2="-50" y2="70" />
+      
+      <line x1="-110" y1="30" x2="-50" y2="-70" />
+      <line x1="-110" y1="30" x2="-50" y2="-35" />
+      <line x1="-110" y1="30" x2="-50" y2="0" />
+      <line x1="-110" y1="30" x2="-50" y2="35" />
+      <line x1="-110" y1="30" x2="-50" y2="70" />
+      
+      <line x1="-110" y1="60" x2="-50" y2="-70" />
+      <line x1="-110" y1="60" x2="-50" y2="-35" />
+      <line x1="-110" y1="60" x2="-50" y2="0" />
+      <line x1="-110" y1="60" x2="-50" y2="35" />
+      <line x1="-110" y1="60" x2="-50" y2="70" />
+    </g>
+    
+    <!-- Hidden 1 to Hidden 2 -->
+    <g stroke="#4158D0" stroke-width="1" stroke-opacity="0.3">
+      <!-- Connect each hidden1 node to each hidden2 node -->
+      <line x1="-30" y1="-70" x2="30" y2="-55" />
+      <line x1="-30" y1="-70" x2="30" y2="-20" />
+      <line x1="-30" y1="-70" x2="30" y2="15" />
+      <line x1="-30" y1="-70" x2="30" y2="50" />
+      
+      <line x1="-30" y1="-35" x2="30" y2="-55" />
+      <line x1="-30" y1="-35" x2="30" y2="-20" />
+      <line x1="-30" y1="-35" x2="30" y2="15" />
+      <line x1="-30" y1="-35" x2="30" y2="50" />
+      
+      <line x1="-30" y1="0" x2="30" y2="-55" />
+      <line x1="-30" y1="0" x2="30" y2="-20" />
+      <line x1="-30" y1="0" x2="30" y2="15" />
+      <line x1="-30" y1="0" x2="30" y2="50" />
+      
+      <line x1="-30" y1="35" x2="30" y2="-55" />
+      <line x1="-30" y1="35" x2="30" y2="-20" />
+      <line x1="-30" y1="35" x2="30" y2="15" />
+      <line x1="-30" y1="35" x2="30" y2="50" />
+      
+      <line x1="-30" y1="70" x2="30" y2="-55" />
+      <line x1="-30" y1="70" x2="30" y2="-20" />
+      <line x1="-30" y1="70" x2="30" y2="15" />
+      <line x1="-30" y1="70" x2="30" y2="50" />
+    </g>
+    
+    <!-- Hidden 2 to Output -->
+    <g stroke="#4158D0" stroke-width="1" stroke-opacity="0.3">
+      <!-- Connect each hidden2 node to each output node -->
+      <line x1="50" y1="-55" x2="110" y2="-30" />
+      <line x1="50" y1="-55" x2="110" y2="0" />
+      <line x1="50" y1="-55" x2="110" y2="30" />
+      
+      <line x1="50" y1="-20" x2="110" y2="-30" />
+      <line x1="50" y1="-20" x2="110" y2="0" />
+      <line x1="50" y1="-20" x2="110" y2="30" />
+      
+      <line x1="50" y1="15" x2="110" y2="-30" />
+      <line x1="50" y1="15" x2="110" y2="0" />
+      <line x1="50" y1="15" x2="110" y2="30" />
+      
+      <line x1="50" y1="50" x2="110" y2="-30" />
+      <line x1="50" y1="50" x2="110" y2="0" />
+      <line x1="50" y1="50" x2="110" y2="30" />
+    </g>
+  </g>
+  
+  <!-- Input data types -->
+  <g transform="translate(150, 140)">
+    <rect x="-80" y="-90" width="160" height="180" rx="10" ry="10" fill="#E6F7FF" stroke="#4158D0" stroke-width="2" />
+    <text x="0" y="-70" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#4158D0">학습자 데이터</text>
+    
+    <g transform="translate(0, -40)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#4158D0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">지식 상태</text>
+    </g>
+    
+    <g transform="translate(0, -10)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#4158D0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">학습 스타일</text>
+    </g>
+    
+    <g transform="translate(0, 20)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#4158D0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">인지 상태</text>
+    </g>
+    
+    <g transform="translate(0, 50)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#4158D0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">학습 목표</text>
+    </g>
+  </g>
+  
+  <!-- Output personalized items -->
+  <g transform="translate(450, 140)">
+    <rect x="-80" y="-90" width="160" height="180" rx="10" ry="10" fill="#FFF0F6" stroke="#C850C0" stroke-width="2" />
+    <text x="0" y="-70" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#C850C0">개인화된 결과</text>
+    
+    <g transform="translate(0, -40)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#C850C0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">맞춤형 학습 경로</text>
+    </g>
+    
+    <g transform="translate(0, -10)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#C850C0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">적응형 콘텐츠</text>
+    </g>
+    
+    <g transform="translate(0, 20)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#C850C0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">실시간 피드백</text>
+    </g>
+    
+    <g transform="translate(0, 50)">
+      <rect x="-60" y="-10" width="120" height="20" rx="5" ry="5" fill="#FFFFFF" stroke="#C850C0" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">맞춤형 평가</text>
+    </g>
+  </g>
+  
+  <!-- Reinforcement learning at bottom -->
+  <g transform="translate(300, 340)">
+    <rect x="-150" y="-40" width="300" height="80" rx="10" ry="10" fill="#FFF9DB" stroke="#FFCC70" stroke-width="2" />
+    <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFCC70">
+      강화 학습 기반 최적화
+    </text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">
+      학습자 반응과 성과를 기반으로
+    </text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">
+      지속적으로 모델 업데이트 및 개선
+    </text>
+  </g>
+</svg>
