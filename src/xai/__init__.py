@@ -3,12 +3,14 @@
 This module provides explainable AI capabilities for the learning system,
 making the system's decision-making process transparent and understandable
 to users, educators, and other stakeholders.
+
+Based on Ucaretron Inc.'s patent application for AI-based personalized learning systems.
 """
 
-from .explanation_generator import ExplanationGenerator
+from .simple_explanation_generator import SimpleExplanationGenerator
 from .visualization_generator import VisualizationGenerator
 
-__all__ = ['ExplanationGenerator', 'VisualizationGenerator', 'XAIManager']
+__all__ = ['SimpleExplanationGenerator', 'VisualizationGenerator', 'XAIManager']
 
 class XAIManager:
     """Manager class for Explainable AI components
@@ -27,7 +29,7 @@ class XAIManager:
         self.config = config or {}
         
         # Initialize explanation generator
-        self.explanation_generator = ExplanationGenerator(
+        self.explanation_generator = SimpleExplanationGenerator(
             self.config.get("explanation_generator", None)
         )
         
@@ -79,9 +81,7 @@ class XAIManager:
             raise RuntimeError("XAI Manager must be initialized first")
         
         # Generate explanation text
-        explanation = self.explanation_generator.generate_path_recommendation_explanation(
-            path_data, learning_model, detail_level, language_style
-        )
+        explanation = self.explanation_generator.explain_learning_path(path_data, learning_model)
         
         # Generate visualizations if not already included
         if not explanation.get("visualizations"):
@@ -120,11 +120,9 @@ class XAIManager:
             raise RuntimeError("XAI Manager must be initialized first")
         
         # Generate explanation text
-        explanation = self.explanation_generator.generate_content_adaptation_explanation(
-            content_data, learning_model, detail_level, language_style
-        )
+        explanation = self.explanation_generator.explain_content_adaptation(content_data, learning_model)
         
-        # Generate visualizations if not already included
+        # Generate visualizations if needed
         if not explanation.get("visualizations"):
             visualizations = []
             
@@ -143,14 +141,12 @@ class XAIManager:
         
         return explanation
     
-    def explain_cognitive_assessment(self, assessment_data, learning_model, detail_level=None, language_style=None):
+    def explain_cognitive_assessment(self, assessment_data, learning_model=None):
         """Generate explanation for cognitive assessment
         
         Args:
             assessment_data: Cognitive assessment data to explain
-            learning_model: Learning model instance
-            detail_level: Desired level of detail in explanation
-            language_style: Desired language style for explanation
+            learning_model: Optional learning model instance
             
         Returns:
             dict: Explanation with text and visualizations
@@ -159,11 +155,9 @@ class XAIManager:
             raise RuntimeError("XAI Manager must be initialized first")
         
         # Generate explanation text
-        explanation = self.explanation_generator.generate_cognitive_assessment_explanation(
-            assessment_data, learning_model, detail_level, language_style
-        )
+        explanation = self.explanation_generator.explain_cognitive_assessment(assessment_data)
         
-        # Generate visualizations if not already included
+        # Generate visualizations if needed
         if not explanation.get("visualizations"):
             visualizations = []
             
@@ -189,10 +183,7 @@ class XAIManager:
         if not self.is_initialized:
             raise RuntimeError("XAI Manager must be initialized first")
         
-        # In a real implementation, this would generate a comprehensive model card
-        # with information about the model's purpose, performance, limitations, etc.
-        # For this reference implementation, we'll return a simple placeholder
-        
+        # Simple model card implementation
         model_card = {
             "model_name": model_data.get("name", "AI Personalized Learning System"),
             "version": model_data.get("version", "1.0.0"),
@@ -214,7 +205,6 @@ class XAIManager:
                 "Aims to promote learning efficacy while respecting learner autonomy",
                 "Continually evaluated for potential biases in recommendations"
             ],
-            "data_usage": "User data is processed securely and used solely for improving learning experiences",
             "feedback_mechanism": "System incorporates user feedback to improve recommendations and explanations"
         }
         
