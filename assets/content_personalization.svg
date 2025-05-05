@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa" rx="15" ry="15" />
+  
+  <!-- Title -->
+  <text x="300" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#FFCC70">
+    콘텐츠 개인화
+  </text>
+  
+  <!-- Student with thought bubble -->
+  <g transform="translate(150, 200)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="35" fill="#FFE0BD" stroke="#6B4F4F" stroke-width="2" />
+    
+    <!-- Face -->
+    <circle cx="-10" cy="-8" r="4" fill="#6B4F4F" /> <!-- Left eye -->
+    <circle cx="10" cy="-8" r="4" fill="#6B4F4F" /> <!-- Right eye -->
+    <path d="M0,10 C5,15 10,15 15,10" fill="none" stroke="#6B4F4F" stroke-width="2" stroke-linecap="round" /> <!-- Smile -->
+    
+    <!-- Hair -->
+    <path d="M-35,-8 C-30,-30 -15,-40 0,-40 C15,-40 30,-30 35,-8" fill="#6B4F4F" />
+    
+    <!-- Thought bubble -->
+    <circle cx="40" cy="-70" r="5" fill="#FFFFFF" stroke="#6B4F4F" stroke-width="1" />
+    <circle cx="50" cy="-80" r="8" fill="#FFFFFF" stroke="#6B4F4F" stroke-width="1" />
+    <circle cx="65" cy="-90" r="25" fill="#FFFFFF" stroke="#6B4F4F" stroke-width="2" />
+    
+    <!-- Question mark in thought bubble -->
+    <text x="65" y="-83" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6B4F4F">?</text>
+  </g>
+  
+  <!-- Content types in center -->
+  <g transform="translate(300, 200)">
+    <!-- Central circle -->
+    <circle cx="0" cy="0" r="70" fill="#FFF9DB" stroke="#FFCC70" stroke-width="3" />
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFCC70">맞춤형 콘텐츠</text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">학습 스타일 기반</text>
+    
+    <!-- Visual content -->
+    <g transform="translate(-40, -40)">
+      <rect x="-30" y="-30" width="60" height="60" rx="5" ry="5" fill="#E6F7FF" stroke="#4158D0" stroke-width="2" />
+      <rect x="-20" y="-20" width="40" height="30" rx="2" ry="2" fill="#FFFFFF" stroke="#4158D0" stroke-width="1" />
+      <circle cx="0" cy="0" r="10" fill="#4158D0" />
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#4158D0">시각적</text>
+    </g>
+    
+    <!-- Verbal content -->
+    <g transform="translate(40, -40)">
+      <rect x="-30" y="-30" width="60" height="60" rx="5" ry="5" fill="#FFF0F6" stroke="#C850C0" stroke-width="2" />
+      <line x1="-20" y1="-15" x2="20" y2="-15" stroke="#C850C0" stroke-width="2" />
+      <line x1="-20" y1="-5" x2="15" y2="-5" stroke="#C850C0" stroke-width="2" />
+      <line x1="-20" y1="5" x2="10" y2="5" stroke="#C850C0" stroke-width="2" />
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#C850C0">언어적</text>
+    </g>
+    
+    <!-- Interactive content -->
+    <g transform="translate(-40, 40)">
+      <rect x="-30" y="-30" width="60" height="60" rx="5" ry="5" fill="#E6FCF5" stroke="#20C997" stroke-width="2" />
+      <rect x="-15" y="-15" width="30" height="20" rx="2" ry="2" fill="#FFFFFF" stroke="#20C997" stroke-width="1" />
+      <circle cx="0" cy="15" r="5" fill="#20C997" />
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#20C997">상호작용</text>
+    </g>
+    
+    <!-- Audio content -->
+    <g transform="translate(40, 40)">
+      <rect x="-30" y="-30" width="60" height="60" rx="5" ry="5" fill="#F3F0FF" stroke="#845EF7" stroke-width="2" />
+      <path d="M-10,-10 L-10,10 L10,0 Z" fill="#845EF7" />
+      <path d="M15,-15 C20,-10 20,10 15,15" fill="none" stroke="#845EF7" stroke-width="2" />
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#845EF7">오디오</text>
+    </g>
+  </g>
+  
+  <!-- Adaptive nature indicator -->
+  <g transform="translate(450, 200)">
+    <!-- Content adaptation settings -->
+    <rect x="-20" y="-80" width="120" height="160" rx="10" ry="10" fill="#FFFFFF" stroke="#FFCC70" stroke-width="2" />
+    <text x="40" y="-60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#FFCC70">콘텐츠 조정</text>
+    
+    <!-- Difficulty slider -->
+    <g transform="translate(40, -30)">
+      <text x="0" y="-10" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">난이도</text>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#FFCC70" stroke-width="2" stroke-linecap="round" />
+      <circle cx="10" cy="0" r="6" fill="#FFFFFF" stroke="#FFCC70" stroke-width="2" />
+    </g>
+    
+    <!-- Pace slider -->
+    <g transform="translate(40, 0)">
+      <text x="0" y="-10" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">학습 속도</text>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#FFCC70" stroke-width="2" stroke-linecap="round" />
+      <circle cx="-5" cy="0" r="6" fill="#FFFFFF" stroke="#FFCC70" stroke-width="2" />
+    </g>
+    
+    <!-- Content type preference -->
+    <g transform="translate(40, 30)">
+      <text x="0" y="-10" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">콘텐츠 유형</text>
+      <line x1="-30" y1="0" x2="30" y2="0" stroke="#FFCC70" stroke-width="2" stroke-linecap="round" />
+      <circle cx="-20" cy="0" r="6" fill="#FFFFFF" stroke="#FFCC70" stroke-width="2" />
+    </g>
+    
+    <!-- AI generation indicator -->
+    <g transform="translate(40, 60)">
+      <rect x="-30" y="-10" width="60" height="20" rx="5" ry="5" fill="#FFF9DB" stroke="#FFCC70" stroke-width="1" />
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">AI 생성 콘텐츠</text>
+    </g>
+  </g>
+  
+  <!-- Learning style profile -->
+  <g transform="translate(150, 330)">
+    <rect x="-100" y="-40" width="200" height="80" rx="10" ry="10" fill="#FFFFFF" stroke="#4158D0" stroke-width="2" />
+    <text x="0" y="-20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#4158D0">학습 스타일 프로필</text>
+    
+    <!-- Style metrics -->
+    <g transform="translate(-60, 10)">
+      <text x="0" y="-5" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">시각적/언어적</text>
+      <rect x="-30" y="0" width="60" height="8" rx="4" ry="4" fill="#F8F9FA" stroke="#4158D0" stroke-width="1" />
+      <rect x="-30" y="0" width="20" height="8" rx="4" ry="4" fill="#4158D0" />
+    </g>
+    
+    <g transform="translate(60, 10)">
+      <text x="0" y="-5" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6B4F4F">능동적/반성적</text>
+      <rect x="-30" y="0" width="60" height="8" rx="4" ry="4" fill="#F8F9FA" stroke="#4158D0" stroke-width="1" />
+      <rect x="-30" y="0" width="45" height="8" rx="4" ry="4" fill="#4158D0" />
+    </g>
+  </g>
+  
+  <!-- AI Content Generator -->
+  <g transform="translate(450, 330)">
+    <rect x="-100" y="-40" width="200" height="80" rx="10" ry="10" fill="#FFF0F6" stroke="#C850C0" stroke-width="2" />
+    <text x="0" y="-20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#C850C0">AI 콘텐츠 생성기</text>
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">개인 수준에 맞는</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6B4F4F">맞춤형 콘텐츠 실시간 생성</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g stroke="#6B4F4F" stroke-width="1" stroke-dasharray="5,3" fill="none">
+    <!-- From student to learning style -->
+    <path d="M150,235 L150,290" />
+    <!-- From learning style to central content -->
+    <path d="M200,290 L250,250" />
+    <!-- From central content to adaptive settings -->
+    <path d="M350,200 L400,200" />
+    <!-- From AI generator to adaptive settings -->
+    <path d="M450,290 L450,240" />
+  </g>
+</svg>
