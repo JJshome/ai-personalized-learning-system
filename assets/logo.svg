@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    .brain { animation: pulse 3s infinite ease-in-out; }
+    .gear { animation: rotate 20s infinite linear; }
+    .connection { animation: fadeInOut 2s infinite ease-in-out; }
+    .outer-ring { animation: rotate 40s infinite linear reverse; }
+  </style>
+  
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a237e" />
+      <stop offset="100%" stop-color="#4a148c" />
+    </linearGradient>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64b5f6" />
+      <stop offset="100%" stop-color="#0d47a1" />
+    </linearGradient>
+    <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffab40" />
+      <stop offset="100%" stop-color="#ff6f00" />
+    </linearGradient>
+    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#76ff03" />
+      <stop offset="100%" stop-color="#64dd17" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="140" fill="url(#bgGradient)" />
+  
+  <!-- Outer Ring -->
+  <circle cx="150" cy="150" r="130" fill="none" stroke="#7e57c2" stroke-width="4" stroke-dasharray="10 5" class="outer-ring" />
+  
+  <!-- Brain Icon (in the center) -->
+  <path class="brain" d="M160,95 C180,90 195,105 195,130 C195,155 180,160 175,165 C170,170 175,180 165,185 C155,190 165,195 160,200 C155,205 145,200 140,195 C135,190 130,195 125,190 C120,185 125,180 120,175 C115,170 105,170 105,160 C105,150 105,140 115,135 C125,130 125,115 135,110 C145,105 150,100 160,95 Z" fill="url(#brainGradient)" />
+  
+  <!-- Gear (representing AI/technology) -->
+  <g class="gear" transform="translate(150, 150)">
+    <circle cx="0" cy="0" r="40" fill="url(#gearGradient)" />
+    <path d="M0,-60 L5,-45 L15,-48 L20,-35 L10,-30 L15,-15 L30,-20 L40,-10 L30,0 L40,10 L30,20 L15,15 L10,30 L20,35 L15,48 L5,45 L0,60 L-5,45 L-15,48 L-20,35 L-10,30 L-15,15 L-30,20 L-40,10 L-30,0 L-40,-10 L-30,-20 L-15,-15 L-10,-30 L-20,-35 L-15,-48 L-5,-45 Z" fill="url(#gearGradient)" />
+    <circle cx="0" cy="0" r="25" fill="#1a237e" />
+  </g>
+  
+  <!-- Connection Lines (representing data flow and learning paths) -->
+  <g class="connection">
+    <path d="M150,150 L90,80" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L210,80" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L220,150" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L80,150" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L90,210" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L210,210" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L150,80" stroke="url(#connectionGradient)" stroke-width="3" />
+    <path d="M150,150 L150,220" stroke="url(#connectionGradient)" stroke-width="3" />
+  </g>
+  
+  <!-- Edge Computing Nodes (at connection endpoints) -->
+  <circle cx="90" cy="80" r="10" fill="#ff1744" />
+  <circle cx="210" cy="80" r="10" fill="#ff1744" />
+  <circle cx="220" cy="150" r="10" fill="#ff1744" />
+  <circle cx="80" cy="150" r="10" fill="#ff1744" />
+  <circle cx="90" cy="210" r="10" fill="#ff1744" />
+  <circle cx="210" cy="210" r="10" fill="#ff1744" />
+  <circle cx="150" cy="80" r="10" fill="#ff1744" />
+  <circle cx="150" cy="220" r="10" fill="#ff1744" />
+  
+  <!-- Text Elements -->
+  <text x="150" y="265" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI Personalized Learning System</text>
+</svg>
